@@ -1,0 +1,20 @@
+.spinningText {
+	display: inline;
+}
+
+#spinning-name-box-full {
+	display: inline;
+}
+
+#spinning-name-box-last {
+	display: inline;
+	padding-left: 15px;
+}
+
+#spinning-name-box-first {
+	display: inline;
+}
+
+#sn {
+	background-color: red;
+}
