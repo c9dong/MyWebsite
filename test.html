@@ -13,18 +13,77 @@
 			opacity: 1;
 			text-align: center;
 		}
-	</style>
 
-	<p>D</p>
-	<p>A</p>
-	<p>V</p>
-	<p>I</p>
-	<p>D</p>
-	<p> </p>
-	<p>D</p>
-	<p>O</p>
-	<p>N</p>
-	<p>G</p>
+		#box {
+			width: auto;
+			height: 75px;
+			overflow: hidden;
+		}
+	</style>
+	<div id="box">
+		<p>D</p>
+		<p>A</p>
+		<p>V</p>
+		<p>I</p>
+		<p>D</p>
+		<p> </p>
+		<p>D</p>
+		<p>O</p>
+		<p>N</p>
+		<p>G</p>
+	</div>
+</template>
+
+<template id = "imageGalleryTemplate">
+	<style>
+		#box{
+			position: relative;
+			overflow: hidden;
+			width: 1000px;
+			height: 400px;
+			white-space: nowrap;
+			text-align: center;
+			word-spacing: -4px;
+		}
+		img{
+			position: relative;
+			display: inline;
+			width: 1000px;
+			height: 400px;
+			margin-left: 0px;
+		}
+		.control{
+			position: absolute;
+			top: 0px;
+			background-color: gray;
+			width: 100px;
+			height: 100%;
+ 			opacity: 0.3;
+ 			z-index: 2;
+		}
+		#leftButton{
+			left: 0px;
+		}
+		#rightButton{
+			right: 0px;
+		}
+		.controlElement{
+			position: absolute;
+			top: 150px;
+			left: 35px;
+		}
+	</style>
+	
+	<div id = "box">
+		<img src="testImg1.jpg">
+		<img src="testImg1.jpg">
+		<img src="testImg1.jpg">
+		<img src="testImg1.jpg">
+		<img src="testImg1.jpg">
+
+		<div id="rightButton" class="control"> <p class = "controlElement">Right</p> </div>
+		<div id="leftButton" class="control"> <p class = "controlElement">Left</p> </div>
+	</div>
 </template>
 
 <html>
@@ -32,9 +91,11 @@
 	<head>
 		<title>David Dong</title>
 		<script type="text/javascript" src="spinning-name.js"></script>	
+		<script type="text/javascript" src="image-gallery.js"></script>	
 	</head>
 
 	<body>
 		<spinning-name id="mainName"></spinning-name>
+		<image-gallery id="images"></image-gallery>
 	</body>
 </html> 

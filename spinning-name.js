@@ -6,9 +6,9 @@ function disappearText(element, mainCounter, disappearCounter, reappearCounter, 
 		element.style.marginTop = '0px';
 		reappearText(element, mainCounter,reappearCounter, destinationLetter,shouldTerminate, initialMargin, timeout);
 	}else{
-		element.style.opacity = element.style.opacity - (1.0/initialMargin);
+		//element.style.opacity = element.style.opacity - (1.0/initialMargin);
 		element.style.marginTop = parseInt(element.style.marginTop)+1+'px';
-		setTimeout(function(){disappearText(element, mainCounter,disappearCounter-1, reappearCounter+1, letter, destinationLetter, shouldTerminate, initialMargin, timeout);},timeout);
+		setTimeout(function(){disappearText(element, mainCounter,disappearCounter-1, reappearCounter+1, letter, destinationLetter, shouldTerminate, initialMargin, timeout);},1);
 	}
 }
 
@@ -16,7 +16,7 @@ function reappearText(element, mainCounter,reappearCounter, destinationLetter,sh
 	if(reappearCounter == 0){
 		changeText(element, mainCounter-1, destinationLetter, shouldTerminate);
 	}else{
-		element.style.opacity = (initialMargin+1-reappearCounter)/initialMargin;
+		//element.style.opacity = (initialMargin+1-reappearCounter)/initialMargin;
 		element.style.marginTop = parseInt(element.style.marginTop)+1+'px';
 		setTimeout(function(){reappearText(element, mainCounter,reappearCounter-1, destinationLetter, shouldTerminate, initialMargin, timeout);},timeout);
 	}
@@ -34,7 +34,7 @@ function changeText(element, mainCounter, destinationLetter, shouldTerminate){
 	}
 	var timeout = 1;
 	if(shouldTerminate){
-		timeout = 10;
+		timeout = 25;
 	}
 	disappearText(element, mainCounter,initialMargin, 0, letter, destinationLetter, shouldTerminate, initialMargin, timeout);
 }
@@ -48,8 +48,8 @@ var SpinningNameProto = Object.create(HTMLElement.prototype, {
 
 			this.addEventListener("click", function(){
 				var destination = ["D","E","V","E","L","O","P","E","R"," "];
-				var mainName = document.getElementById("mainName");
-				var childrenEle = mainName.shadowRoot.getElementsByTagName('p');
+				//var mainName = document.getElementById("mainName");
+				var childrenEle = this.shadowRoot.getElementById("box").getElementsByTagName('p');
 				for(var i = 0; i < childrenEle.length; i++){
 					setTimeout(changeText, Math.floor(Math.random()*1600), childrenEle[i], Math.floor(Math.random()*100)+10, destination[i], false);
 				}
